@@ -12,6 +12,9 @@ import {
   CheckCircle2,
   Star,
 } from "lucide-react";
+import { blogPosts } from "@/lib/blogPosts";
+import SiteFooter from "@/components/SiteFooter";
+
 
 export default function Home() {
   const tools = [
@@ -102,6 +105,9 @@ export default function Home() {
             </a>
             <a href="#pricing" className="hover:text-white">
               Pricing
+            </a>
+              <a href="/blog" className="hover:text-white">
+              Blog
             </a>
             <a href="#faq" className="hover:text-white">
               FAQ
@@ -335,6 +341,63 @@ export default function Home() {
           </div>
         </section>
 
+                {/* BLOG PREVIEW */}
+        <section
+          id="blog"
+          className="border-b border-slate-800 bg-slate-950 py-16"
+        >
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-indigo-400">
+                  EDUCATION
+                </p>
+                <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl">
+                  Learn the “why” behind every calculator.
+                </h2>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
+                  These short articles explain profit/loss, DCA, liquidation and staking
+                  in the same language as the tools, so you can make sense of the numbers.
+                </p>
+              </div>
+
+              <Link
+                href="/blog"
+                className="text-xs font-semibold text-indigo-300 hover:text-indigo-200"
+              >
+                View all articles →
+              </Link>
+            </div>
+
+            {/* show first 3 posts */}
+            <div className="grid gap-4 md:grid-cols-3">
+              {blogPosts.slice(0, 3).map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/70 p-4 text-left transition hover:border-slate-500 hover:bg-slate-900"
+                >
+                  <div>
+                    <p className="text-[11px] text-slate-400">
+                      {post.date} · {post.readTime}
+                    </p>
+                    <h3 className="mt-2 text-sm font-semibold text-slate-50 sm:text-base">
+                      {post.title}
+                    </h3>
+                    <p className="mt-2 text-xs leading-relaxed text-slate-300 sm:text-sm">
+                      {post.description}
+                    </p>
+                  </div>
+                  <div className="mt-3 text-[11px] font-semibold text-indigo-300">
+                    Read article →
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
 
         {/* TESTIMONIALS */}
         <section className="border-b border-slate-800 bg-slate-950 py-16">
@@ -487,23 +550,9 @@ export default function Home() {
         </section>
       </main>
 
-      {/* FOOTER */}
-      <footer className="border-t border-slate-800 bg-slate-950 py-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-[11px] text-slate-500 sm:flex-row sm:px-6 lg:px-8">
-          <p>© {new Date().getFullYear()} CryptoCalcHub. All rights reserved.</p>
-          <div className="flex gap-4">
-            <a href="#tools" className="hover:text-slate-300">
-              Tools
-            </a>
-            <a href="#pricing" className="hover:text-slate-300">
-              Pricing
-            </a>
-            <a href="#faq" className="hover:text-slate-300">
-              FAQ
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
+
+      
     </div>
   );
 }
