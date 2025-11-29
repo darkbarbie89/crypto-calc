@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Calculator, ArrowLeft } from "lucide-react";
 import StakingCalculator from "@/components/calculators/StakingCalculator";
+import AffiliateBanner from "@/components/AffiliateBanner";
 
 export default function StakingPage() {
   return (
@@ -60,6 +61,11 @@ export default function StakingPage() {
             <div className="relative rounded-[1.5rem] bg-gradient-to-r from-purple-500/70 via-pink-500/70 to-indigo-500/70 p-[1px] shadow-[0_0_0_1px_rgba(168,85,247,0.45),0_0_40px_rgba(168,85,247,0.55)]">
               <div className="rounded-[1.4rem] border border-slate-800 bg-slate-950/95 p-5 sm:p-6">
                 <StakingCalculator />
+
+              {/* <--- THE MONETIZATION NUDGE ---> */}
+                 <AffiliateBanner />
+
+
               </div>
             </div>
           </div>

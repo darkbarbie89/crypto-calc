@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Calculator, ArrowLeft, Shield } from "lucide-react";
 import LiquidationCalculator from "@/components/calculators/LiquidationCalculator";
+import AffiliateBanner from "@/components/AffiliateBanner";
 
 export default function LiquidationPage() {
   return (
@@ -60,6 +61,10 @@ export default function LiquidationPage() {
             <div className="relative rounded-[1.5rem] bg-gradient-to-r from-purple-500/70 via-indigo-500/70 to-sky-500/70 p-[1px] shadow-[0_0_0_1px_rgba(129,140,248,0.4),0_0_40px_rgba(79,70,229,0.6)]">
               <div className="rounded-[1.4rem] border border-slate-800 bg-slate-950/95 p-5 sm:p-6">
                 <LiquidationCalculator />
+
+              {/* <--- THE MONETIZATION NUDGE ---> */}
+                <AffiliateBanner />
+
               </div>
             </div>
           </div>

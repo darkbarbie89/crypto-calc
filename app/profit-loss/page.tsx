@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Calculator, ArrowLeft } from "lucide-react";
 import ProfitLossCalculator from "@/components/calculators/ProfitLossCalculator";
+import AffiliateBanner from "@/components/AffiliateBanner"; // <--- NEW IMPORT
 
 export default function ProfitLossPage() {
   return (
@@ -20,7 +21,7 @@ export default function ProfitLossPage() {
           <Link
             href="/"
             className="flex items-center gap-1 text-xs text-slate-300 hover:text-slate-100"
-          >
+            >
             <ArrowLeft className="h-3 w-3" />
             Back to home
           </Link>
@@ -60,7 +61,13 @@ export default function ProfitLossPage() {
 
             <div className="relative rounded-[1.5rem] bg-gradient-to-r from-emerald-500/70 via-sky-500/70 to-indigo-500/70 p-[1px] shadow-[0_0_0_1px_rgba(34,197,94,0.45),0_0_40px_rgba(34,197,94,0.55)]">
               <div className="rounded-[1.4rem] border border-slate-800 bg-slate-950/95 p-5 sm:p-6">
+                
+                {/* The Calculator */}
                 <ProfitLossCalculator />
+                
+                {/* <--- THE MONETIZATION NUDGE ---> */}
+                <AffiliateBanner />
+
               </div>
             </div>
           </div>

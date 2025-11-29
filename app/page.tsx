@@ -1,5 +1,8 @@
 // app/page.tsx
+"use client"; // <--- NEW: Required for the script widget to work properly
+
 import Link from "next/link";
+import Script from "next/script"; // <--- NEW: Import Script for the widgets
 import {
   ArrowRight,
   Calculator,
@@ -7,14 +10,11 @@ import {
   AlertTriangle,
   PiggyBank,
   Shield,
-  Clock,
-  BarChart3,
   CheckCircle2,
   Star,
 } from "lucide-react";
 import { blogPosts } from "@/lib/blogPosts";
 import SiteFooter from "@/components/SiteFooter";
-
 
 export default function Home() {
   const tools = [
@@ -84,8 +84,25 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
+      
+      {/* <--- NEW: CoinGecko Live Ticker Script & Widget */}
+      {/* This creates the "Moving Money" vibe immediately */}
+      <Script
+        src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"
+        strategy="lazyOnload"
+      />
+      <div className="border-b border-slate-800 bg-slate-950">
+        <coingecko-coin-price-marquee-widget
+          coin-ids="bitcoin,ethereum,solana,binancecoin,ripple,cardano"
+          currency="usd"
+          background-color="#020617" 
+          locale="en"
+          font-color="#f8fafc"
+        ></coingecko-coin-price-marquee-widget>
+      </div>
+
       {/* Top navbar */}
-      <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur">
+      <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500">
@@ -97,19 +114,19 @@ export default function Home() {
           </div>
 
           <nav className="hidden gap-6 text-sm text-slate-300 md:flex">
-            <a href="#how-it-works" className="hover:text-white">
+            <a href="#how-it-works" className="hover:text-white transition-colors">
               How it works
             </a>
-            <a href="#tools" className="hover:text-white">
+            <a href="#tools" className="hover:text-white transition-colors">
               Tools
             </a>
-            <a href="#pricing" className="hover:text-white">
+            <a href="#pricing" className="hover:text-white transition-colors">
               Pricing
             </a>
-              <a href="/blog" className="hover:text-white">
+            <a href="/blog" className="hover:text-white transition-colors">
               Blog
             </a>
-            <a href="#faq" className="hover:text-white">
+            <a href="#faq" className="hover:text-white transition-colors">
               FAQ
             </a>
           </nav>
@@ -117,7 +134,7 @@ export default function Home() {
           <div className="hidden md:flex">
             <Link
               href="#tools"
-              className="inline-flex items-center gap-1 rounded-full border border-slate-700 px-4 py-1 text-xs font-semibold text-slate-100 hover:border-slate-400"
+              className="inline-flex items-center gap-1 rounded-full border border-slate-700 px-4 py-1 text-xs font-semibold text-slate-100 hover:border-slate-400 hover:bg-slate-800 transition-all"
             >
               Launch tools
               <ArrowRight className="h-3 w-3" />
@@ -127,69 +144,93 @@ export default function Home() {
       </header>
 
       <main>
-        {/* HERO */}
-        <section className="border-b border-slate-800 bg-slate-950">
+       {/* HERO */}
+        <section className="border-b border-slate-800 bg-slate-950 overflow-hidden">
           <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:px-8 lg:py-24">
-            <div>
+            
+            {/* Left Column: Text & Actions */}
+            <div className="relative z-10">
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-400">
                 PLAN EVERY MOVE
               </p>
               <h1 className="mb-4 text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl lg:text-6xl">
-                Invest at the perfect time.
+                Invest at the <br className="hidden lg:block"/> 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-sky-400">perfect time.</span>
               </h1>
-              <p className="mb-6 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
+              <p className="mb-8 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
                 CryptoCalcHub turns confusing crypto math into clear, visual
                 answers. Test entries, exits, DCA strategies and staking
                 rewards before you commit real money.
               </p>
 
-              <div className="mb-8 flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <Link
                   href="#tools"
-                  className="inline-flex items-center gap-2 rounded-full bg-slate-50 px-5 py-2 text-xs font-semibold text-slate-950 shadow-sm hover:bg-slate-200"
+                  className="inline-flex items-center gap-2 rounded-full bg-slate-50 px-6 py-3 text-sm font-semibold text-slate-950 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:bg-slate-200 hover:scale-105 transition-all"
                 >
                   Try the calculators
-                  <ArrowRight className="h-3 w-3" />
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
-                <span className="text-xs text-slate-400">
-                  No signup. No fees. Just clean numbers.
+                <span className="text-xs text-slate-400 px-2">
+                  No signup. No fees.
                 </span>
               </div>
 
-              <div className="flex flex-wrap items-center gap-6 text-xs text-slate-500">
+              <div className="mt-10 flex flex-wrap items-center gap-6 text-xs text-slate-500">
                 <span>Built for spot, futures & staking.</span>
                 <span className="h-1 w-1 rounded-full bg-slate-600" />
-                <span>Updated for the latest market data.</span>
+                <span>Updated for 2026 Cycle.</span>
               </div>
             </div>
 
-            {/* Phone mockup */}
-            <div className="relative flex justify-center lg:justify-end">
+            {/* Right Column: Phone Mockup with FEAR & GREED WIDGET */}
+            <div className="relative flex justify-center lg:justify-end mt-8 lg:mt-0">
               <div className="pointer-events-none absolute -top-16 -left-10 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl" />
               <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl" />
 
-              <div className="relative w-[280px] rounded-[2.5rem] border border-slate-700 bg-slate-900 px-4 pb-6 pt-6 shadow-xl shadow-black/40">
-                {/* notch */}
+              {/* The Phone Container */}
+              <div className="relative w-[280px] rounded-[2.5rem] border border-slate-700 bg-slate-900 px-4 pb-6 pt-6 shadow-2xl shadow-indigo-500/10 transform transition hover:scale-[1.02] duration-500">
+                
+                {/* iPhone Notch */}
                 <div className="mx-auto mb-4 h-6 w-24 rounded-full bg-slate-800" />
+                
                 <div className="space-y-4 text-xs">
+                  {/* App Header */}
                   <div className="flex items-center justify-between">
                     <span className="font-semibold text-slate-100">
-                      BTC / USDT
+                      Market Status
                     </span>
-                    <span className="text-emerald-400">+12.4%</span>
+                    <span className="flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] text-emerald-400">
+                       <span className="relative flex h-1.5 w-1.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                        </span>
+                        Live
+                    </span>
                   </div>
-                  <div className="h-24 rounded-xl bg-gradient-to-tr from-emerald-500/10 via-sky-500/10 to-indigo-500/10 ring-1 ring-slate-700/60">
-                    <div className="flex h-full items-end justify-between px-3 pb-3">
-                      {[40, 48, 52, 44, 60, 68, 72].map((h, i) => (
-                        <div
-                          key={i}
-                          className="w-4 rounded-full bg-emerald-400/70"
-                          style={{ height: `${h}%` }}
+
+                  {/* <--- FEAR & GREED WIDGET (MAXIMIZED) ---> */}
+                  <div className="overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-700/60">
+                     <a 
+                        href="https://alternative.me/crypto/fear-and-greed-index/" 
+                        target="_blank" 
+                        rel="noreferrer"
+                        className="block w-full"
+                     >
+                        <img
+                            src="https://alternative.me/crypto/fear-and-greed-index.png"
+                            alt="Fear and Greed Index"
+                            className="w-full h-auto object-cover" 
                         />
-                      ))}
-                    </div>
+                     </a>
                   </div>
+                  {/* <--- END WIDGET ---> */}
+
+                  {/* PnL Stats Card */}
                   <div className="space-y-1 rounded-xl border border-slate-700/80 bg-slate-900/80 p-3">
+                    <div className="mb-2 border-b border-slate-800 pb-2 text-[10px] font-semibold uppercase text-indigo-400">
+                        Portfolio Simulation
+                    </div>
                     <div className="flex items-center justify-between text-[11px]">
                       <span className="text-slate-400">Entry price</span>
                       <span className="font-medium text-slate-100">
@@ -209,10 +250,11 @@ export default function Home() {
                       </span>
                     </div>
                   </div>
+
                   <div className="flex items-center justify-between text-[11px] text-slate-400">
                     <span>Next DCA buy in 3d 4h</span>
                     <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] text-emerald-400">
-                      On track
+                      Auto
                     </span>
                   </div>
                 </div>
