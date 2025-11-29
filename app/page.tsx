@@ -16,6 +16,7 @@ import {
 import { blogPosts } from "@/lib/blogPosts";
 import SiteFooter from "@/components/SiteFooter";
 
+
 export default function Home() {
   const tools = [
     {
@@ -92,6 +93,8 @@ export default function Home() {
         strategy="lazyOnload"
       />
       <div className="border-b border-slate-800 bg-slate-950">
+
+        {/* @ts-ignore */}
         <coingecko-coin-price-marquee-widget
           coin-ids="bitcoin,ethereum,solana,binancecoin,ripple,cardano"
           currency="usd"
