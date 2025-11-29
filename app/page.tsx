@@ -1,11 +1,10 @@
-// app/page.tsx
-"use client"; // <--- NEW: Required for the script widget to work properly
+"use client";
 
 import Link from "next/link";
-import Script from "next/script"; // <--- NEW: Import Script for the widgets
+import Script from "next/script";
+import Image from "next/image"; 
 import {
   ArrowRight,
-  Calculator,
   TrendingUp,
   AlertTriangle,
   PiggyBank,
@@ -15,7 +14,7 @@ import {
 } from "lucide-react";
 import { blogPosts } from "@/lib/blogPosts";
 import SiteFooter from "@/components/SiteFooter";
-
+import logo from "@/components/logo.png"; 
 
 export default function Home() {
   const tools = [
@@ -31,7 +30,7 @@ export default function Home() {
       description:
         "Simulate weekly or monthly investing and compare different DCA strategies.",
       href: "/dca",
-      icon: Calculator,
+      icon: null, 
     },
     {
       title: "Liquidation Price",
@@ -66,8 +65,8 @@ export default function Home() {
 
   const faqs = [
     {
-      q: "Is CryptoCalcHub free to use?",
-      a: "Yes. All calculators on CryptoCalcHub are free. You can use them as often as you like with no signup required.",
+      q: "Is SatsTally free to use?", 
+      a: "Yes. All calculators on SatsTally are free. You can use them as often as you like with no signup required.",
     },
     {
       q: "Do you support real-time prices?",
@@ -78,7 +77,7 @@ export default function Home() {
       a: "Yes. The liquidation calculator is built specifically for margin and futures traders to understand risk at different leverage levels.",
     },
     {
-      q: "Does CryptoCalcHub give financial advice?",
+      q: "Does SatsTally give financial advice?",
       a: "No. All tools are for educational purposes only. Always do your own research before investing in any asset.",
     },
   ];
@@ -86,15 +85,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
       
-      {/* <--- NEW: CoinGecko Live Ticker Script & Widget */}
-      {/* This creates the "Moving Money" vibe immediately */}
+      {/* CoinGecko Live Ticker Script & Widget */}
       <Script
         src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"
         strategy="lazyOnload"
       />
       <div className="border-b border-slate-800 bg-slate-950">
-
-        {/* @ts-ignore */}
         <coingecko-coin-price-marquee-widget
           coin-ids="bitcoin,ethereum,solana,binancecoin,ripple,cardano"
           currency="usd"
@@ -108,12 +104,15 @@ export default function Home() {
       <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500">
-              <Calculator className="h-4 w-4 text-white" />
-            </div>
-            <span className="text-sm font-semibold tracking-tight text-slate-100">
-              CryptoCalcHub
-            </span>
+            <Link href="/" className="block">
+                {/* LOGO IN HEADER - ADJUSTED SIZE TO H-12 (48px) */}
+                <Image
+                  src={logo}
+                  alt="SatsTally"
+                  className="h-12 w-auto rounded-md object-contain"
+                  priority
+                />
+            </Link>
           </div>
 
           <nav className="hidden gap-6 text-sm text-slate-300 md:flex">
@@ -147,7 +146,7 @@ export default function Home() {
       </header>
 
       <main>
-       {/* HERO */}
+        {/* HERO */}
         <section className="border-b border-slate-800 bg-slate-950 overflow-hidden">
           <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:px-8 lg:py-24">
             
@@ -161,7 +160,7 @@ export default function Home() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-sky-400">perfect time.</span>
               </h1>
               <p className="mb-8 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
-                CryptoCalcHub turns confusing crypto math into clear, visual
+                SatsTally turns confusing crypto math into clear, visual
                 answers. Test entries, exits, DCA strategies and staking
                 rewards before you commit real money.
               </p>
@@ -212,7 +211,7 @@ export default function Home() {
                     </span>
                   </div>
 
-                  {/* <--- FEAR & GREED WIDGET (MAXIMIZED) ---> */}
+                  {/* FEAR & GREED WIDGET (MAXIMIZED) */}
                   <div className="overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-700/60">
                      <a 
                         href="https://alternative.me/crypto/fear-and-greed-index/" 
@@ -227,7 +226,6 @@ export default function Home() {
                         />
                      </a>
                   </div>
-                  {/* <--- END WIDGET ---> */}
 
                   {/* PnL Stats Card */}
                   <div className="space-y-1 rounded-xl border border-slate-700/80 bg-slate-900/80 p-3">
@@ -266,13 +264,11 @@ export default function Home() {
           </div>
         </section>
 
-        
-                {/* TOOLS GRID – highlighted */}
+        {/* TOOLS GRID */}
         <section
           id="tools"
           className="relative border-b border-slate-800 bg-slate-950 py-20"
         >
-          {/* soft glow behind */}
           <div className="pointer-events-none absolute inset-0 -z-10">
             <div className="absolute inset-x-0 top-0 mx-auto h-64 max-w-4xl bg-gradient-to-b from-indigo-500/25 via-slate-950 to-slate-950 blur-3xl" />
           </div>
@@ -299,7 +295,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* glowing frame */}
             <div className="rounded-[1.75rem] bg-gradient-to-r from-indigo-500/70 via-sky-500/70 to-purple-500/70 p-[1px] shadow-[0_0_0_1px_rgba(129,140,248,0.4),0_0_40px_rgba(79,70,229,0.6)]">
               <div className="rounded-[1.6rem] border border-slate-800 bg-slate-950/90 p-5 sm:p-6">
                 <div className="mb-4 flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-400">
@@ -324,7 +319,7 @@ export default function Home() {
                       >
                         <div className="mb-3 flex items-center gap-3">
                           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-800 group-hover:bg-indigo-500/90">
-                            <Icon className="h-4 w-4 text-slate-100" />
+                           {Icon && <Icon className="h-4 w-4 text-slate-100" />}
                           </div>
                           <h3 className="text-sm font-semibold text-slate-50">
                             {tool.title}
@@ -346,7 +341,7 @@ export default function Home() {
           </div>
         </section>
 
-{/* HOW IT WORKS */}
+        {/* HOW IT WORKS */}
         <section
           id="how-it-works"
           className="border-b border-slate-800 bg-slate-950"
@@ -360,7 +355,7 @@ export default function Home() {
                 From idea to insight in three steps.
               </h2>
               <p className="text-sm leading-relaxed text-slate-300 sm:text-base">
-                CryptoCalcHub is designed to remove friction. Each calculator
+                SatsTally is designed to remove friction. Each calculator
                 guides you with clean inputs, clear labels and outputs you can
                 trust.
               </p>
@@ -386,7 +381,7 @@ export default function Home() {
           </div>
         </section>
 
-                {/* BLOG PREVIEW */}
+        {/* BLOG PREVIEW */}
         <section
           id="blog"
           className="border-b border-slate-800 bg-slate-950 py-16"
@@ -442,14 +437,12 @@ export default function Home() {
           </div>
         </section>
 
-
-
         {/* TESTIMONIALS */}
         <section className="border-b border-slate-800 bg-slate-950 py-16">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="mb-8 max-w-2xl">
               <h2 className="mb-2 text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl">
-                Everyone is changing their trading with CryptoCalcHub.
+                Everyone is changing their trading with SatsTally.
               </h2>
               <p className="text-sm leading-relaxed text-slate-300 sm:text-base">
                 Traders use these tools to validate setups, understand risk and
@@ -463,7 +456,7 @@ export default function Home() {
                   name: "Arjun M.",
                   role: "Swing trader",
                   quote:
-                    "I used to keep PnL in a spreadsheet. Now I run every idea through CryptoCalcHub first.",
+                    "I used to keep PnL in a spreadsheet. Now I run every idea through SatsTally first.",
                 },
                 {
                   name: "Sarah L.",
@@ -513,7 +506,7 @@ export default function Home() {
                 Flat pricing, no management fees.
               </h2>
               <p className="text-sm leading-relaxed text-slate-300 sm:text-base">
-                CryptoCalcHub is free. In the future we may add optional
+                SatsTally is free. In the future we may add optional
                 advanced reports – but the core tools will stay free forever.
               </p>
             </div>
@@ -526,7 +519,7 @@ export default function Home() {
                       CURRENT PLAN
                     </p>
                     <h3 className="mt-1 text-lg font-semibold text-slate-50">
-                      CryptoCalcHub Free
+                      SatsTally Free
                     </h3>
                   </div>
                   <p className="text-right text-sm font-semibold text-slate-50">
@@ -560,7 +553,7 @@ export default function Home() {
               <div className="space-y-4 text-xs text-slate-300">
                 <p>
                   We believe good decisions start with clear numbers. That’s why
-                  CryptoCalcHub doesn’t charge management or subscription fees
+                  SatsTally doesn’t charge management or subscription fees
                   for the core tools.
                 </p>
                 <p>
@@ -596,8 +589,6 @@ export default function Home() {
       </main>
 
       <SiteFooter />
-
-      
     </div>
   );
 }

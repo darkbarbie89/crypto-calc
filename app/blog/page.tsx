@@ -14,7 +14,7 @@ export default function BlogIndexPage() {
               <Calculator className="h-4 w-4 text-white" />
             </div>
             <span className="text-sm font-semibold tracking-tight text-slate-100">
-              CryptoCalcHub
+              SatsTally
             </span>
           </Link>
 
@@ -38,7 +38,7 @@ export default function BlogIndexPage() {
               Learn crypto strategies before you click “Buy”.
             </h1>
             <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">
-              Short, practical articles that match the calculators on CryptoCalcHub —
+              Short, practical articles that match the calculators on SatsTally —
               profit/loss, DCA, liquidation and staking.
             </p>
           </div>

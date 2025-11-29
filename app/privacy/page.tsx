@@ -12,7 +12,7 @@ export default function PrivacyPage() {
               <Calculator className="h-4 w-4 text-white" />
             </div>
             <span className="text-sm font-semibold tracking-tight text-slate-100">
-              CryptoCalcHub
+              SatsTally
             </span>
           </Link>
 
@@ -33,7 +33,7 @@ export default function PrivacyPage() {
           </h1>
 
           <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
-            CryptoCalcHub provides free crypto calculators without requiring you
+            SatsTally provides free crypto calculators without requiring you
             to create an account or submit personal information. The tools can be
             used anonymously.
           </p>
@@ -63,7 +63,7 @@ export default function PrivacyPage() {
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">
             If you do not agree with this Privacy Policy, you should discontinue
-            use of CryptoCalcHub. Continuing to use the site will be treated as
+            use of SatsTally. Continuing to use the site will be treated as
             acceptance of this policy.
           </p>
         </div>

@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { Calculator, Twitter, Github } from "lucide-react";
+import Image from "next/image"; // <--- Use Next.js Image for local imports
+import { Twitter, Github } from "lucide-react";
+
+// IMPORTANT: Ensure 'logo.png' is inside the 'components' folder
+import logo from "./logo.png"; 
 
 export default function SiteFooter() {
   const currentYear = new Date().getFullYear();
@@ -11,12 +15,16 @@ export default function SiteFooter() {
           
           {/* Brand & Status */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-500">
-                <Calculator className="h-3 w-3 text-white" />
-              </div>
-              <span className="font-semibold text-slate-100">CryptoCalcHub</span>
-            </div>
+            <Link href="/" className="inline-block">
+              {/* Using Next/Image handles the path automatically */}
+              <Image 
+                src={logo} 
+                alt="SatsTally" 
+                className="h-12 w-auto rounded-lg object-contain" 
+                priority // Loads image immediately
+              />
+            </Link>
+
             <p className="max-w-xs text-xs leading-relaxed text-slate-400">
               Professional grade profit, DCA, and risk calculators for the modern crypto trader.
               Built for the 2026 cycle.
@@ -67,7 +75,7 @@ export default function SiteFooter() {
         {/* Bottom Bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 sm:flex-row">
           <p className="text-xs text-slate-500">
-            &copy; {currentYear} CryptoCalcHub. All rights reserved.
+            &copy; {currentYear} SatsTally. All rights reserved.
           </p>
           <div className="flex gap-4">
              {/* Social placeholders for credibility */}

@@ -12,7 +12,7 @@ export default function TermsPage() {
               <Calculator className="h-4 w-4 text-white" />
             </div>
             <span className="text-sm font-semibold tracking-tight text-slate-100">
-              CryptoCalcHub
+              SatsTally
             </span>
           </Link>
 
@@ -33,7 +33,7 @@ export default function TermsPage() {
           </h1>
 
           <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
-            CryptoCalcHub is provided for informational and educational purposes
+            SatsTally is provided for informational and educational purposes
             only. The calculators and content on this site do not constitute
             financial, investment, tax, legal, or trading advice.
           </p>
@@ -61,7 +61,7 @@ export default function TermsPage() {
             Limitation of liability
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">
-            By using CryptoCalcHub, you agree that the owner and contributors of
+            By using SatsTally, you agree that the owner and contributors of
             this site are not liable for any loss or damage, direct or indirect,
             arising from your use of the calculators, the content, or any
             third-party links.

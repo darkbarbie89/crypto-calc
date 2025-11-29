@@ -74,12 +74,12 @@ export const blogPosts: BlogPost[] = [
         </ul>
 
         <h2 className="mt-6 mb-2 text-lg font-semibold text-slate-50">
-          Try it with CryptoCalcHub
+          Try it with SatsTally
         </h2>
         <p className="mb-4 text-sm leading-relaxed text-slate-300">
           Instead of guessing your PnL in a spreadsheet, you can plug your trade into the{" "}
           <Link href="/profit-loss" className="text-indigo-300 underline underline-offset-2">
-            CryptoCalcHub Profit/Loss Calculator
+            SatsTally Profit/Loss Calculator
           </Link>{" "}
           and see your:
         </p>
@@ -152,7 +152,7 @@ export const blogPosts: BlogPost[] = [
         <p className="mb-4 text-sm leading-relaxed text-slate-300">
           You can try these scenarios in the{" "}
           <Link href="/dca" className="text-indigo-300 underline underline-offset-2">
-            CryptoCalcHub DCA Calculator
+            SatsTally DCA Calculator
           </Link>{" "}
           and see your average entry price and potential returns.
         </p>
@@ -207,7 +207,7 @@ export const blogPosts: BlogPost[] = [
         <p className="mb-4 text-sm leading-relaxed text-slate-300">
           You can experiment safely using the{" "}
           <Link href="/liquidation" className="text-indigo-300 underline underline-offset-2">
-            CryptoCalcHub Liquidation Calculator
+            SatsTally Liquidation Calculator
           </Link>{" "}
           before opening any real trades.
         </p>
@@ -267,7 +267,7 @@ export const blogPosts: BlogPost[] = [
         <p className="mb-4 text-sm leading-relaxed text-slate-300">
           You can explore these options with the{" "}
           <Link href="/staking" className="text-indigo-300 underline underline-offset-2">
-            CryptoCalcHub Staking Calculator
+            SatsTally Staking Calculator
           </Link>{" "}
           and see how your potential rewards change over months and years.
         </p>

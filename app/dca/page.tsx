@@ -15,7 +15,7 @@ export default function DCAPage() {
               <Calculator className="h-4 w-4 text-white" />
             </div>
             <span className="text-sm font-semibold tracking-tight text-slate-100">
-              CryptoCalcHub
+              SatsTally
             </span>
           </Link>
 

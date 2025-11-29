@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CryptoCalcHub - Professional Crypto Calculators",
+  title: "SatsTally - Professional Crypto Calculators",
   description: "Advanced cryptocurrency calculators including Profit/Loss, DCA, Liquidation, and Staking calculators with real-time prices.",
 };
 
