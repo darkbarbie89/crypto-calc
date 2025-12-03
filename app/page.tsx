@@ -11,6 +11,7 @@ import {
   Shield,
   CheckCircle2,
   Star,
+  Search,
 } from "lucide-react";
 import { blogPosts } from "@/lib/blogPosts";
 import SiteFooter from "@/components/SiteFooter";
@@ -263,6 +264,45 @@ export default function Home() {
             </div>
           </div>
         </section>
+        
+
+        {/* NEW FEATURE SPOTLIGHT (Paste this between Hero and Tools Grid) */}
+        <section className="border-b border-slate-800 bg-slate-950 py-10">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="relative overflow-hidden rounded-3xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-slate-900 to-slate-900 px-6 py-10 shadow-2xl sm:px-12 sm:py-14">
+              
+              {/* Decorative Glow */}
+              <div className="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl" />
+              
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="mb-4 inline-flex items-center rounded-full border border-indigo-400/30 bg-indigo-400/10 px-3 py-1 text-xs font-medium text-indigo-300">
+                   <Shield className="mr-1.5 h-3.5 w-3.5" /> 
+                   New Feature Added
+                </div>
+                
+                <h2 className="mb-4 text-2xl font-bold tracking-tight text-white sm:text-4xl">
+                   Don't get rugged. Scan before you swap.
+                </h2>
+                
+                <p className="mb-8 max-w-2xl text-sm text-slate-300 sm:text-base">
+                   We've added a powerful AI Safety Scanner. Check Ethereum contracts for honeypots, 
+                   hidden taxes, and verified source code instantly.
+                </p>
+
+                <Link
+                   href="/safety"
+                   className="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:bg-indigo-500 hover:scale-105 transition-all"
+                >
+                   <Search className="h-4 w-4" />
+                   Open Safety Scanner
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
 
         {/* TOOLS GRID */}
         <section
