@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Shield, ArrowLeft, AlertTriangle, CheckCircle2, Search, Loader2 } from "lucide-react";
+import logo from "@/components/logo.png"; 
+import Image from "next/image";
 
 export default function SafetyPage() {
   const [address, setAddress] = useState("");
@@ -41,17 +43,20 @@ export default function SafetyPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
-      {/* Top bar */}
+      {/* Top navbar */}
       <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500">
-              <Shield className="h-4 w-4 text-white" />
-            </div>
-            <span className="text-sm font-semibold tracking-tight text-slate-100">
-              SatsTally
-            </span>
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link href="/" className="block">
+              {/* LOGO IN HEADER - ADJUSTED SIZE TO H-12 (48px) */}
+              <Image
+                src={logo}
+                alt="SatsTally"
+                className="h-12 w-auto rounded-md object-contain"
+                priority
+              />
+            </Link>
+          </div>
 
           <Link
             href="/"

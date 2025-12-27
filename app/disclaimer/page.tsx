@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Calculator, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
-import logo from "@/components/logo.png"
+import logo from "@/components/logo.png";
 
-export default function PrivacyPage() {
+export default function DisclaimerPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
       {/* Top bar */}
@@ -33,42 +33,45 @@ export default function PrivacyPage() {
       <main className="py-10 sm:py-12 lg:py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl">
-            Privacy Policy
+            Disclaimer
           </h1>
 
           <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
-            SatsTally provides free crypto calculators without requiring you
-            to create an account or submit personal information. The tools can be
-            used anonymously.
+            The tools, calculators, and information provided on SatsTally are for
+            informational and educational purposes only. By using this website, you
+            agree to the terms outlined below.
           </p>
 
           <h2 className="mt-6 text-sm font-semibold text-slate-100 sm:text-base">
-            Analytics & usage data
+            Not financial advice
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">
-            We may use basic analytics (such as page views and traffic sources)
-            to understand how the site is used and to improve the experience.
-            This data is aggregated and is not used to personally identify you.
+            Nothing on this website constitutes financial, investment, legal, or
+            tax advice. Cryptocurrency investments carry inherent risks, including
+            market volatility and the potential loss of capital. You should always
+            conduct your own research or consult with a qualified financial advisor
+            before making investment decisions.
           </p>
 
           <h2 className="mt-6 text-sm font-semibold text-slate-100 sm:text-base">
-            Third-party services
+            Accuracy of information
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">
-            If we integrate third-party services in the future (for example
-            analytics, advertising or payment providers), they will process data
-            according to their own privacy policies. You should review those
-            policies before using any paid or account-based features if they are
-            added later.
+            While we strive to ensure that the calculations and data provided are
+            accurate, SatsTally makes no warranties regarding the completeness,
+            reliability, or accuracy of this information. Calculator results are
+            estimates based on the inputs provided and may not reflect actual
+            market conditions or exchange rates at the time of transaction.
           </p>
 
           <h2 className="mt-6 text-sm font-semibold text-slate-100 sm:text-base">
-            Your choices
+            Limitation of liability
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">
-            If you do not agree with this Privacy Policy, you should discontinue
-            use of SatsTally. Continuing to use the site will be treated as
-            acceptance of this policy.
+            SatsTally and its developers shall not be held liable for any damages,
+            losses, or expenses arising from the use of this website or reliance
+            on its tools. You assume full responsibility for any actions taken
+            based on the information provided here.
           </p>
         </div>
       </main>

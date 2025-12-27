@@ -1,8 +1,6 @@
 import Link from "next/link";
-import Image from "next/image"; // <--- Use Next.js Image for local imports
+import Image from "next/image"; 
 import { Twitter, Github } from "lucide-react";
-
-// IMPORTANT: Ensure 'logo.png' is inside the 'components' folder
 import logo from "./logo.png"; 
 
 export default function SiteFooter() {
@@ -11,17 +9,18 @@ export default function SiteFooter() {
   return (
     <footer className="border-t border-slate-800 bg-slate-950 py-12 text-sm">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        
+        {/* GRID CONTAINER */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           
           {/* Brand & Status */}
           <div className="space-y-4">
             <Link href="/" className="inline-block">
-              {/* Using Next/Image handles the path automatically */}
               <Image 
                 src={logo} 
                 alt="SatsTally" 
                 className="h-12 w-auto rounded-lg object-contain" 
-                priority // Loads image immediately
+                priority 
               />
             </Link>
 
@@ -30,7 +29,7 @@ export default function SiteFooter() {
               Built for the 2026 cycle.
             </p>
             
-            {/* TRUST SIGNAL: Live Data Badge */}
+            {/* TRUST SIGNAL */}
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-[11px] text-emerald-400">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -61,16 +60,17 @@ export default function SiteFooter() {
             </ul>
           </div>
 
-          {/* Legal / Placeholder */}
+          {/* Legal */}
           <div>
             <h3 className="mb-4 font-semibold text-slate-200">Legal</h3>
             <ul className="space-y-2 text-slate-400">
-              <li><Link href="#" className="hover:text-indigo-400 transition-colors">Privacy Policy</Link></li>
-              <li><Link href="#" className="hover:text-indigo-400 transition-colors">Terms of Service</Link></li>
-              <li><Link href="#" className="hover:text-indigo-400 transition-colors">Disclaimer</Link></li>
+              <li><Link href="/privacy" className="hover:text-indigo-400 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-indigo-400 transition-colors">Terms of Service</Link></li>
+              <li><Link href="/disclaimer" className="hover:text-indigo-400 transition-colors">Disclaimer</Link></li>
             </ul>
           </div>
-        </div>
+          
+        </div> {/* <--- THIS CLOSING TAG WAS MISSING */}
 
         {/* Bottom Bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 sm:flex-row">
@@ -78,7 +78,6 @@ export default function SiteFooter() {
             &copy; {currentYear} SatsTally. All rights reserved.
           </p>
           <div className="flex gap-4">
-             {/* Social placeholders for credibility */}
              <a href="#" className="text-slate-500 hover:text-white transition-colors"><Twitter className="h-4 w-4" /></a>
              <a href="#" className="text-slate-500 hover:text-white transition-colors"><Github className="h-4 w-4" /></a>
           </div>

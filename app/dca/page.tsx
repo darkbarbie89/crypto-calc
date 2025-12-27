@@ -3,23 +3,30 @@ import { Calculator, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DCACalculator from "@/components/calculators/DCACalculator";
 import AffiliateBanner from "@/components/AffiliateBanner"; // <--- NEW IMPORT
+import Image from "next/image";
+import logo from "@/components/logo.png"
 
 export default function DCAPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
-      {/* Top bar – same style family as home */}
+      {/* Top bar */}
       <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500">
-              <Calculator className="h-4 w-4 text-white" />
-            </div>
-            <span className="text-sm font-semibold tracking-tight text-slate-100">
-              SatsTally
-            </span>
+          {/* LEFT SIDE: Logo */}
+          <Link href="/" className="block">
+            <Image
+              src={logo}
+              alt="SatsTally"
+              className="h-12 w-auto rounded-md object-contain"
+              priority
+            />
           </Link>
 
-          <Link href="/" className="flex items-center gap-1 text-xs text-slate-300 hover:text-slate-100">
+          {/* RIGHT SIDE: Back to home */}
+          <Link
+            href="/"
+            className="flex items-center gap-1 text-xs text-slate-300 hover:text-slate-100"
+          >
             <ArrowLeft className="h-3 w-3" />
             Back to home
           </Link>
